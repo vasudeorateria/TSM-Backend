@@ -6,13 +6,12 @@ const route = Router()
 route.post('/create-payment-intent', async (req, res) => {
 
     try {
-        const {amount, currency} = req.body;
-        const intent = await createPaymentIntent(amount, currency)
+        const {amount, currency, description} = req.body
+
+        const intent = await createPaymentIntent(amount, currency , description)
         res.status(200).json(
             {
                 clientSecret: intent.client_secret,
-                'amount': amount,
-                'currency': currency
             }
         )
     } catch (e) {
