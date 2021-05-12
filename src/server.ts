@@ -2,6 +2,7 @@ import express from 'express'
 import {createConnection} from "typeorm";
 import {Review} from "./entities/Review";
 import {reviewRoute} from "./routes/reviews";
+import {paymentRoute} from "./routes/payments";
 
 const app = express()
 app.use(express.json())
@@ -12,6 +13,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/reviews' , reviewRoute)
+app.use('/api/payments' , paymentRoute)
 
 async function start() {
 

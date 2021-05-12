@@ -11,8 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "dotenv": "^9.0.2",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
+    "stripe": "^8.148.0",
     "typeorm": "^0.2.32"
   },
   "devDependencies": {

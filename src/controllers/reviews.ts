@@ -2,9 +2,7 @@ import {Review} from "../entities/Review";
 import {getRepository} from "typeorm";
 
 export async function getReview() :Promise<Review[]>{
-    const reviews = await getRepository(Review).find()
-    console.log(reviews)
-    return reviews
+    return await getRepository(Review).find()
 }
 
 export async function createReview(review: Review){
