@@ -27,7 +27,9 @@ async function start() {
         logger: 'advanced-console'
     })
 
-    app.listen(3232, () => {
+    const PORT = process.env.PORT || 3232
+
+    app.listen(PORT, () => {
         console.log("Server started on http://localhost:3232")
     })
 }
