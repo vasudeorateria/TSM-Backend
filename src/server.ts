@@ -34,31 +34,31 @@ async function start() {
 
     const PORT = process.env.PORT || 3232
 
-    // const server = createServer((request: IncomingMessage, response: ServerResponse) => {
-    //     const client = new Client({
-    //         connectionString: process.env.DATABASE_URL
-    //     })
-    //     response.statusCode = 200
-    //     response.setHeader('Content-Type', 'text/plain')
-    //     client.connect()
-    //         .then(() => client.query('SELECT * FROM REVIEW'))
-    //         .then((result : any) => {
-    //             response.end(`${result.rows[0].name}\n`)
-    //             client.end()
-    //         })
-    //         .catch(() => {
-    //             response.end('ERROR')
-    //             client.end()
-    //         })
-    // })
-    //
-    // server.listen(PORT, () => {
-    //     console.log(`Database Server running on ${PORT}/`)
-    // })
+    const server = createServer((request: IncomingMessage, response: ServerResponse) => {
+        const client = new Client({
+            connectionString: process.env.DATABASE_URL
+        })
+        response.statusCode = 200
+        response.setHeader('Content-Type', 'text/plain')
+        client.connect()
+            .then(() => client.query('SELECT * FROM REVIEW'))
+            .then((result : any) => {
+                response.end(`${result.rows[0].name}\n`)
+                client.end()
+            })
+            .catch(() => {
+                response.end('ERROR')
+                client.end()
+            })
+    })
+
+    server.listen(PORT, () => {
+        console.log(`Database Server running on ${PORT}/`)
+    })
 
 
     app.listen(PORT, () => {
-        console.log("Server started!! App is listening on port number " + PORT)
+        console.log("Server started!! Listening to your requests")
     })
 }
 
