@@ -10,7 +10,6 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 const app = express()
 app.use(express.json())
 
-const http = require('http');
 const { Client } = require('pg');
 
 app.get('/', (req, res) => {
