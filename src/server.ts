@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
     res.send("Hello World")
 })
 
-// app.use('/api/reviews', reviewRoute)
-// app.use('/api/payments', paymentRoute)
+app.use('/api/reviews', reviewRoute)
+app.use('/api/payments', paymentRoute)
 
 async function start() {
 
