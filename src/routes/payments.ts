@@ -3,6 +3,23 @@ import {createPaymentIntent} from "../controllers/payments";
 
 const route = Router()
 
+route.get('/config' , (req , res)=>{
+    try{
+        res.status(200).json(
+            {
+                publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+            }
+        )
+    }catch(e){
+        res.status(404).json(
+            {
+                errors: e.message
+            }
+        )
+    }
+})
+
+
 route.post('/create-payment-intent', async (req, res) => {
 
     try {
@@ -15,7 +32,7 @@ route.post('/create-payment-intent', async (req, res) => {
             }
         )
     } catch (e) {
-        return res.status(404).json(
+        res.status(404).json(
             {
                 errors: e.message
             }

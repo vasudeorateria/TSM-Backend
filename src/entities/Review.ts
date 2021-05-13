@@ -1,9 +1,9 @@
-import {Column, Entity, PrimaryColumn} from "typeorm";
+import {Column, Entity, Generated, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
 export class Review {
 
-    @PrimaryColumn({length:2})
+    @PrimaryGeneratedColumn("rowid")
     id: string
 
     @Column({type:"text"})
