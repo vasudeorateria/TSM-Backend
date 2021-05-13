@@ -36,7 +36,10 @@ async function start() {
 
     const server = createServer((request: IncomingMessage, response: ServerResponse) => {
         const client = new Client({
-            connectionString: process.env.DATABASE_URL
+            connectionString: process.env.DATABASE_URL,
+            ssl: {
+                rejectUnauthorized: false
+            }
         })
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/plain')
@@ -52,8 +55,8 @@ async function start() {
             })
     })
 
-    server.listen(PORT, () => {
-        console.log(`Database Server running on ${PORT}/`)
+    server.listen(5432, () => {
+        console.log(`Database Server running on port 5432`)
     })
 
 
