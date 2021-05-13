@@ -58,7 +58,7 @@ async function start() {
 
 
     app.listen(PORT, () => {
-        console.log("Server started on ${PORT}/")
+        console.log("Server started!! App is listening on port number " + PORT)
     })
 }
 
