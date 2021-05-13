@@ -42,7 +42,7 @@ async function start() {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/plain')
         client.connect()
-            .then(() => client.query('SELECT * FROM hellotable'))
+            .then(() => client.query('SELECT * FROM REVIEW'))
             .then((result : any) => {
                 response.end(`${result.rows[0].name}\n`)
                 client.end()
@@ -64,4 +64,3 @@ async function start() {
 }
 
 start()
-
