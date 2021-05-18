@@ -1,10 +1,10 @@
-import {Column, Entity, Generated, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
-export class Review {
+export class Reviews {
 
     @PrimaryGeneratedColumn("rowid")
-    id: string
+    id: number
 
     @Column({type:"text"})
     image: string

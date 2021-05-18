@@ -1,13 +1,13 @@
 import {Router} from "express";
-import {getReview} from "../controllers/reviews";
+import {getServices} from "../controllers/services";
 
 const route = Router()
 
 // Read
 route.get('/', async (req, res) => {
     try {
-        const reviews = await getReview()
-        res.status(200).send(reviews)
+        const services = await getServices()
+        res.status(200).send(services)
     } catch (e) {
         return res.status(404).json(
             {
@@ -18,6 +18,7 @@ route.get('/', async (req, res) => {
 })
 
 /*
+
 // Create
 route.post('/create', async (req, res) => {
 
@@ -73,6 +74,6 @@ route.delete('delete', async (req, res) => {
     }
 })
 
- */
+*/
 
-export const reviewRoute = route
+export const servicesRoute = route
