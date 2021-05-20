@@ -1,6 +1,5 @@
 select * from portfolios
 
-###
 UPDATE portfolios
 SET images = array [
 'https://thinksurfmedia.herokuapp.com/portfolios/egp/egp1.jpg',
@@ -8,8 +7,6 @@ SET images = array [
 'https://thinksurfmedia.herokuapp.com/portfolios/egp/egp3.jpg'] ,
 website = 'https://thinksurfmedia.com'
 WHERE id =1;
-
-###
 
 insert into portfolios (id ,images , website) values
 ( 3 ,
