@@ -39,32 +39,30 @@ async function start() {
     })
 
     const localConnection: ConnectionOptions = {
-        // name: 'local',
         type: 'postgres',
         username: 'tsm',
         password: 'tsm',
         database: 'tsm',
-        entities: [Services, Highlights, Plans, Reviews, Portfolios],
+        entities: ['dist/entities/*'],
         synchronize: true,
         logging: true,
         logger: 'advanced-console'
     }
 
-    // const herokuConnection: ConnectionOptions = {
-    //     // name: ' heroku',
-    //     type: 'postgres',
-    //     host: 'ec2-54-161-239-198.compute-1.amazonaws.com',
-    //     port: 5432,
-    //     username: 'xhnhbbwtpytvau',
-    //     password: '213f65bf3cc83485e1892c8eeed8f582ab0c3ea0d68f437e920e6869126c8cf7\n',
-    //     database: 'd1ahk1po911rag',
-    //     entities: [Services, Highlights, Plans, Reviews, Portfolios],
-    //     synchronize: true,
-    //     logging: true,
-    //     logger: 'advanced-console'
-    // }
-    //
-    // const chooseConnection = (PORT == 3232) ? localConnection : herokuConnection
+    const herokuConnection: ConnectionOptions = {
+        type: 'postgres',
+        host: 'ec2-54-161-239-198.compute-1.amazonaws.com',
+        port: 5432,
+        username: 'xhnhbbwtpytvau',
+        password: '213f65bf3cc83485e1892c8eeed8f582ab0c3ea0d68f437e920e6869126c8cf7\n',
+        database: 'd1ahk1po911rag',
+        entities: ['dist/entities/*'],
+        synchronize: true,
+        logging: true,
+        logger: 'advanced-console'
+    }
+
+    const chooseConnection = (PORT == 3232) ? localConnection : herokuConnection
     await createConnection(localConnection)
 
 }
