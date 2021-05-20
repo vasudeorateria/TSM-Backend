@@ -27,7 +27,7 @@
 --)
 
 --select * from services
---select * from highlights
+select * from highlights
 --select * from plans
 --select * from portfolios
 
@@ -42,9 +42,19 @@ select * from reviews;
 --WHERE id =1;
 --
 --
-UPDATE reviews
-SET image = 'http://192.168.29.86:3232/one-image.jpg'
+UPDATE highlights
+SET image = 'https://thinksurfmedia.herokuapp.com/highlights/highlight1.jpg'
 WHERE id =1;
+--UPDATE highlights
+--SET image = 'https://thinksurfmedia.herokuapp.com/highlights/highlight2.jpg'
+--WHERE id =2;
+--UPDATE highlights
+--SET image = 'https://thinksurfmedia.herokuapp.com/highlights/highlight3.jpg'
+--WHERE id =3;
+--UPDATE highlights
+--SET image = 'https://thinksurfmedia.herokuapp.com/highlights/highlight4.jpg'
+--WHERE id =4;
+--select * form highlights
 --
 --UPDATE portfolios
 --SET images = array ['http://192.168.29.86:3232/one-image.jpg']
