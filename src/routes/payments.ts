@@ -1,5 +1,6 @@
 import {Router} from "express";
-import {createPaymentIntent} from "../controllers/payments";
+import {createPaymentIntent, getServiceNames} from "../controllers/payments";
+import {getPortfolios} from "../controllers/portfolios";
 
 const route = Router()
 
@@ -32,6 +33,19 @@ route.post('/create-payment-intent', async (req, res) => {
             }
         )
     } catch (e) {
+        res.status(404).json(
+            {
+                errors: e.message
+            }
+        )
+    }
+})
+
+route.get('/service-names-list' , async (req , res)=>{
+    try {
+        const serviceNames = await getServiceNames()
+        res.status(200).send(serviceNames)
+    }catch(e){
         res.status(404).json(
             {
                 errors: e.message
